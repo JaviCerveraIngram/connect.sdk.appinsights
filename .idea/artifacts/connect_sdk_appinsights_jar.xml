@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact name="connect.sdk.appinsights:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/connect_sdk_appinsights_jar</output-path>
+    <root id="root">
+      <element id="archive" name="connect.sdk.appinsights.jar">
+        <element id="module-output" name="connect.sdk.appinsights" />
+      </element>
+      <element id="library" level="project" name="Maven: com.microsoft.azure:applicationinsights-core:2.6.2" />
+      <element id="library" level="project" name="Maven: com.microsoft.azure:applicationinsights-logging-logback:2.6.2" />
+      <element id="library" level="project" name="Maven: com.cloudblue:connect.sdk:20.3.2" />
+      <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.2.3" />
+      <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.2.3" />
+      <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.30" />
+    </root>
+  </artifact>
+</component>
