@@ -20,10 +20,10 @@ public class AzureLoggerWriter implements ILoggerWriter {
     private final Map<String, String> properties;
 
     public AzureLoggerWriter(String instrumentationKey) {
-        TelemetryConfiguration.getActive().setInstrumentationKey(instrumentationKey);
         final String name = ch.qos.logback.classic.Logger.ROOT_LOGGER_NAME;
         logger = (ch.qos.logback.classic.Logger) LoggerFactory.getLogger(name);
         appender = (ApplicationInsightsAppender) logger.getAppender("aiAppender");
+        TelemetryConfiguration.getActive().setInstrumentationKey(instrumentationKey);
         properties = new HashMap<>();
     }
 
