@@ -20,11 +20,11 @@ public class AzureLoggerWriter implements ILoggerWriter {
     private final Map<String, String> properties;
 
     public AzureLoggerWriter(String instrumentationKey) {
-        TelemetryConfiguration.getActive().setInstrumentationKey(instrumentationKey);
         final String name = ch.qos.logback.classic.Logger.ROOT_LOGGER_NAME;
         logger = (ch.qos.logback.classic.Logger) LoggerFactory.getLogger(name);
         appender = (ApplicationInsightsAppender) logger.getAppender("aiAppender");
         properties = new HashMap<>();
+        TelemetryConfiguration.getActive().setInstrumentationKey(instrumentationKey);
     }
 
     protected AzureLoggerWriter(ch.qos.logback.classic.Logger logger, ApplicationInsightsAppender appender) {
@@ -76,31 +76,31 @@ public class AzureLoggerWriter implements ILoggerWriter {
             final String vendorId = getVendorId(request);
             final String externalId = getExternalId(request);
             if (request.id != null) {
-                properties.put("Request", request.id);
+                writer.properties.put("Request", request.id);
             }
             if (providerId != null) {
-                properties.put("Provider", providerId);
+                writer.properties.put("Provider", providerId);
             }
             if (hubId != null) {
-                properties.put("Hub", hubId);
+                writer.properties.put("Hub", hubId);
             }
             if (marketplaceId != null) {
-                properties.put("Marketplace", marketplaceId);
+                writer.properties.put("Marketplace", marketplaceId);
             }
             if (productId != null) {
-                properties.put("Product", productId);
+                writer.properties.put("Product", productId);
             }
             if (tierAccountId != null) {
-                properties.put("TierAccount", tierAccountId);
+                writer.properties.put("TierAccount", tierAccountId);
             }
             if (connectionId != null) {
-                properties.put("Connection", connectionId);
+                writer.properties.put("Connection", connectionId);
             }
             if (vendorId != null) {
-                properties.put("Vendor", vendorId);
+                writer.properties.put("Vendor", vendorId);
             }
             if (externalId != null) {
-                properties.put("ExternalId", externalId);
+                writer.properties.put("ExternalId", externalId);
             }
         }
         return writer;
